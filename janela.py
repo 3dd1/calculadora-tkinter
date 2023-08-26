@@ -6,9 +6,13 @@ def inserir(valor):
     display.insert(END, valor)
 def calcular():
     texto_display = display.get()
-    resultado = eval(texto_display)
-    limpar()
-    display.insert(0, str(resultado))
+    try:
+        resultado = eval(texto_display)
+        limpar()
+        display.insert(0, str(resultado))
+    except:
+        limpar()
+        display.insert(0, str("Erro!"))
 
 
 window = Tk()
@@ -50,16 +54,10 @@ btn_2.grid(row=2, column=1)
 btn_3.grid(row=2, column=2)
 btn_som.grid(row=2, column=3)
 
-btn_div.grid(row=3, column=3)
-btn_limpar.grid(row=3, column=1)
 btn_0.grid(row=3, column=0)
+btn_limpar.grid(row=3, column=1)
 btn_igual.grid(row=3, column=2)
-
-
-
-
-
-
+btn_div.grid(row=3, column=3)
 
 panel.pack()
 window.mainloop()
